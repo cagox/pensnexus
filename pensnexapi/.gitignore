@@ -1,0 +1,27 @@
+# Binaries for various operating systems and architectures
+*.exe
+*.dll
+*.so
+*.dylib
+*.rpm
+*.deb
+
+# Go build cache and module cache
+.cache/
+go.mod.bak
+go.sum.bak
+
+# Test-related files
+testdata/
+*.test
+
+# Editor/IDE specific files
+.idea/
+.vscode/
+*.swp
+*.bak
+*.tmp
+
+# Environment variables and sensitive data
+.env
+config.local.json
