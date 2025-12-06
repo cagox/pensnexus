@@ -1,0 +1,16 @@
+# Go build artifacts
+*.exe
+*.out
+
+# Go module cache
+pkg/
+
+# Test results and profiling data
+*.test
+*.prof
+
+# Log files and temporary directories
+*.log
+temp/
+
+
