@@ -1,0 +1,18 @@
+{
+    "SiteName": "Fiction Site",
+    "LogPath": "/path/to/logs",
+    "Hosts": "127.0.0.1;localhost",
+    "Port": "8888",
+    "StaticPath": "/path/to/static/files",
+    "TemplateRoot": "/path/to/templates",
+    "AdminToken": "admin token goes here",
+    "MinimumNameLength": 1,
+    "MaximumNameLength": 255,
+    "EncKey": "EncryptionKey.",
+    "AuthKey": "AuthenticationKey",
+    "CookieName": "FictionSiteCookies",
+    "DatabaseName": "ficsite",
+    "DatabaseUserName": "ficsiteuser",
+    "DatabasePassword": "G1b3r1$#P@s$W0rd",
+    "DatabaseServerURL": "server url"
+  }
