@@ -1,0 +1,4 @@
+github.com/cagox/config v0.0.0-20211105162423-8d428bff3d2b h1:Np6bSnPe+7yGF8pv600UB+BcZo5t9g1tGd03ptGLR+0=
+github.com/cagox/config v0.0.0-20211105162423-8d428bff3d2b/go.mod h1:jKgXRENgyDs18dwljhxuBXftDvh9tliJ877fOVHDVE4=
+github.com/gorilla/mux v1.8.1 h1:TuBL49tXwgrFYWhqrNgrUNEY92u81SPhu7sTdzQEiWY=
+github.com/gorilla/mux v1.8.1/go.mod h1:AKf9I4AEqPTmMytcMc0KkNouC66V3BtZ4qD5fmWSiMQ=
