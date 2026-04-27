@@ -1,0 +1,26 @@
+:root {
+    --background-color: rgb(52, 52, 52);
+    --accent-coolor: rgb(5, 94, 104);
+    --scondary-accent-color: rgb(98, 163, 136);
+    --icon-color: rgb(185, 210, 210);
+}
+
+body {
+    background-color: var(--accent-coolor);
+}
+
+#appContainer {
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-top: 16px;
+    background-color: var(--background-color);
+    color: var(--icon-color);
+}
+
+.icon {
+    color: var(--icon-color);
+}
+
+#searchText {
+    color: black;
+}
