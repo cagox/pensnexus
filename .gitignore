@@ -102,3 +102,6 @@ deployment_keys.tar
 .github/.release
 release-artifacts-*
 
+#local stuff
+local/
+
