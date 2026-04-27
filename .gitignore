@@ -104,4 +104,5 @@ release-artifacts-*
 
 #local stuff
 local/
+localdocs/
 
