@@ -4,7 +4,7 @@ function PageFooter() {
         <div className="flex flex-row ">
             <div className="basis-10 bg-red-500"></div>
             <div className="basis-3/12 p-5">
-                <div>Created By Cagox</div>
+                <div><a href="https://github.com/cagox/pensnexus">Created By Cagox</a></div>
                 <div><a href="https://react.dev/">Powered By React</a></div>
                 <div><a href="https://www.typescriptlang.org/">Powered By TypeScript</a></div>
                 <div><a href="https://tailwindcss.com/">Styled With Tailwind</a></div>
