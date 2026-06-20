@@ -10,3 +10,4 @@ Look into pgx -> database/sql -> sqlx
 # Extensions
 These need to be enabled inside of PostgreSQL.
 - CREATE EXTENSION citext;
+
