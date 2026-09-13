@@ -11,3 +11,6 @@ Look into pgx -> database/sql -> sqlx
 These need to be enabled inside of PostgreSQL.
 - CREATE EXTENSION citext;
 
+# Notes to self.
+- Use linux git to push repo. The windows version doesn't like this folder.
+- 
