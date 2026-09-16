@@ -1,16 +1,17 @@
 # Tech
 
-I want to look at using postresql instead of mariadb.
-
-Look at https://github.com/jackc/pgx
-
-Look into pgx -> database/sql -> sqlx 
-
+Using postgresql, Python, and React
 
 # Extensions
 These need to be enabled inside of PostgreSQL.
-- CREATE EXTENSION citext;
+    This needs to be run inside the database for the app, not just in general.
+    - CREATE EXTENSION IF NOT EXISTS citext;
+  
+# SQLAlchemy
+- set up venv and activate
+- sudo apt install libpq-dev
+- pip install psycopg2
+- pip install alembic
 
-# Notes to self.
-- Use linux git to push repo. The windows version doesn't like this folder.
-- 
+
+

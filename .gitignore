@@ -1,9 +1,12 @@
-# Go build artifacts
-*.exe
-*.out
+#local stuff not to commit
+local/
+__pycache__/
 
-# Go module cache
-pkg/
+# Python Related
+.venv/
+
+
+
 
 # Test results and profiling data
 *.test
@@ -102,7 +105,5 @@ deployment_keys.tar
 .github/.release
 release-artifacts-*
 
-#local stuff
-local/
-localdocs/
+
 
