@@ -1,8 +1,6 @@
 #local stuff not to commit
 local/
 __pycache__/
-
-# Python Related
 .venv/
 
 
