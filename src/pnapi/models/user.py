@@ -1,4 +1,5 @@
-from sqlalchemy import String, select, datetime, timezone
+from datetime import datetime, timezone
+from sqlalchemy import String, select
 from sqlalchemy.orm import Mapped, Session, mapped_column
 from typing import Optional
 import pyotp
