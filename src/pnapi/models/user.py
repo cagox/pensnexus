@@ -4,7 +4,7 @@ from sqlalchemy.orm import Mapped, Session, mapped_column
 from typing import Optional
 import pyotp
 
-from ..db.types import Base, bigint_pk, user_email, created_at_dt, nullable_time_stamp, updated_at_dt
+from ..db.types import Base, bigint_pk, unique_user_data, created_at_dt, nullable_time_stamp, updated_at_dt
 
 from ..crypto.passwords import hash_password, verify_password
 
@@ -12,7 +12,7 @@ class User(Base):
 	__tablename__ = "users"
 	#
 	id: Mapped[bigint_pk]
-	email: Mapped[user_email]
+	email: Mapped[unique_user_data]
 	created_at: Mapped[created_at_dt]
 	last_updated: Mapped[updated_at_dt]
 	date_verified: Mapped[nullable_time_stamp] # None if email not verified

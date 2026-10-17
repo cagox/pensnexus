@@ -1,6 +1,6 @@
 from datetime import datetime
 from typing import Annotated, Optional
-from sqlalchemy import String, BigInteger, DateTime, Boolean, func, false
+from sqlalchemy import String, BigInteger, DateTime, Boolean, Text, func, false
 from sqlalchemy.orm import DeclarativeBase, mapped_column
 
 
@@ -22,6 +22,11 @@ nullable_time_stamp = Annotated[Optional[datetime], mapped_column(DateTime(timez
 
 # Deletable Object
 default_false_bool = Annotated[bool, mapped_column(Boolean, default=False, server_default=false(), nullable=False)]
+
+# Text fields
+text_content = Annotated[str, mapped_column(Text, nullable=False)]
+nullable_text_content = Annotated[Optional[str], mapped_column(Text, nullable=True, default=None)]
+
 
 # The base for database classes
 class Base(DeclarativeBase):
