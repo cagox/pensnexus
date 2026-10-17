@@ -11,6 +11,7 @@
     "EncKey": "EncryptionKey.",
     "AuthKey": "AuthenticationKey",
     "CookieName": "FictionSiteCookies",
+    "JWTSecret": "JWTSecretKey (secrets.token_hex(32))",
     "DatabaseName": "ficsite",
     "DatabaseUserName": "ficsiteuser",
     "DatabasePassword": "8R8gDe38LMtc",

@@ -9,7 +9,7 @@ from sqlalchemy.orm import DeclarativeBase, mapped_column
 bigint_pk = Annotated[int, mapped_column(BigInteger, primary_key=True, autoincrement=True)]
 
 # Standard indexed email
-user_email = Annotated[str, mapped_column(String(255), unique=True, index=True, nullable=False)]
+unique_user_data = Annotated[str, mapped_column(String(255), unique=True, index=True, nullable=False)]
 
 # Auto-populating timestamp
 created_at_dt = Annotated[datetime, mapped_column(DateTime(timezone=True), server_default=func.now())]
@@ -23,7 +23,7 @@ nullable_time_stamp = Annotated[Optional[datetime], mapped_column(DateTime(timez
 # Deletable Object
 default_false_bool = Annotated[bool, mapped_column(Boolean, default=False, server_default=false(), nullable=False)]
 
-# Text fields
+# Free Text fields
 text_content = Annotated[str, mapped_column(Text, nullable=False)]
 nullable_text_content = Annotated[Optional[str], mapped_column(Text, nullable=True, default=None)]
 
