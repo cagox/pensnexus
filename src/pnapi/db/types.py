@@ -1,7 +1,24 @@
+from ..config import settings
+import uuid
+import uuid6
 from datetime import datetime
 from typing import Annotated, Optional
-from sqlalchemy import String, BigInteger, DateTime, Boolean, Text, func, false
+from sqlalchemy import String, BigInteger, DateTime, Boolean, Text, UUID, func, false
 from sqlalchemy.orm import DeclarativeBase, mapped_column
+
+
+# --- Custom Object ID Type using UUID ---
+# UUIDs as primary keys can be useful for distributed systems.
+def generate_node_uuid() -> uuid.UUID:
+	"""
+	Generates a UUIDv6 based on the node_id from settings.
+
+	Returns:
+		uuid.UUID: A UUIDv6 object.
+	"""
+	return uuid6.uuid6(node=settings.node_id)
+uuid_pk = Annotated[uuid.UUID, mapped_column(UUID(as_uuid=True), primary_key=True, default=generate_node_uuid)]
+
 
 
 # --- Reusable Custom Types ---

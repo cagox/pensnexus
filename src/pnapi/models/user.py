@@ -3,15 +3,16 @@ from sqlalchemy import String, select
 from sqlalchemy.orm import Mapped, Session, mapped_column
 from typing import Optional
 import pyotp
+import uuid
 
-from ..db.types import Base, bigint_pk, unique_user_data, created_at_dt, nullable_time_stamp, updated_at_dt
+from ..db.types import Base, uuid_pk, unique_user_data, created_at_dt, nullable_time_stamp, updated_at_dt
 
 from ..crypto.passwords import hash_password, verify_password
 
 class User(Base):
 	__tablename__ = "users"
 	#
-	id: Mapped[bigint_pk]
+	id: Mapped[uuid_pk]
 	email: Mapped[unique_user_data]
 	created_at: Mapped[created_at_dt]
 	last_updated: Mapped[updated_at_dt]
@@ -37,7 +38,7 @@ class User(Base):
 	#
 	#
 	@classmethod
-	def get_by_id(cls, session: Session, user_id: int) -> Optional["User"]:
+	def get_by_id(cls, session: Session, user_id: uuid.UUID) -> Optional["User"]:
 		return session.get(cls, user_id)
 	#
 	#	
