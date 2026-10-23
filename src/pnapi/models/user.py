@@ -47,7 +47,7 @@ class User(Base):
 	#
 	#	
 	def verify_password(self, password_string: str) -> bool:
-		return verify_password(self.password_hash, password_string)
+		return verify_password(self.password_hash, password_string, settings.pepper)
 	#
 	#
 	def commit_to_db(self, session: Session) -> "User":
