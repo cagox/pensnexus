@@ -1,6 +1,6 @@
 from datetime import datetime, timezone
-from sqlalchemy import ForeignKey, BigInteger, select
-from sqlalchemy.orm import Mapped, Session, mapped_column, UUID
+from sqlalchemy import ForeignKey, BigInteger, select, Uuid
+from sqlalchemy.orm import Mapped, Session, mapped_column
 import uuid
 from typing import Optional
 import pyotp
@@ -16,7 +16,7 @@ class Profile(Base):
 	created_at: Mapped[created_at_dt]
 	last_updated: Mapped[updated_at_dt]
 	deactivated_at: Mapped[nullable_time_stamp] # None if active
-	user_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
+	user_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("users.id"), nullable=False)
 	display_name: Mapped[unique_user_data] 
 	bio: Mapped[nullable_text_content] # None if not set
 	#TODO : Add social media links, profile picture, etc.

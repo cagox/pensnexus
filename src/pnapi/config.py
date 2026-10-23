@@ -11,19 +11,27 @@ if not config_path.is_file():
     raise FileNotFoundError(f"CRITICAL: Config file '{config_path}' does not exist.")
 
 def get_secret(key: str) -> str:
+    # 1. Production / systemd runtime
     cred_dir = environ.get("CREDENTIALS_DIRECTORY")
-    if not cred_dir:
-        raise FileNotFoundError(f"CREDENTIALS_DIRECTORY environment variable not set.")
-    
-    secret_path = Path(cred_dir) / key
-    if not secret_path.is_file():
+    if cred_dir:
+        secret_path = Path(cred_dir) / key
+        if secret_path.is_file():
+            val = secret_path.read_text(encoding="utf-8").strip()
+            if val:
+                return val
+            raise ValueError(f"Secret '{key}' is empty in credentials directory.")
         raise FileNotFoundError(f"Secret '{key}' not found in credentials directory.")
-    
-    val = secret_path.read_text(encoding="utf-8").strip()
-    if not val:
-        raise ValueError(f"Secret '{key}' is empty in credentials directory.")
 
-    return val
+    # 2. Local dev environment variable fallback (DB_PASSWORD, PEPPER, SESSION_SECRET)
+    env_val = environ.get(key.upper())
+    if env_val:
+        return env_val.strip()
+
+    # 3. Fail fast if neither exists
+    raise RuntimeError(
+        f"CRITICAL: Secret '{key}' could not be resolved from "
+        f"$CREDENTIALS_DIRECTORY or environment variable '{key.upper()}'."
+    )
 
             
 
