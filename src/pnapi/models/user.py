@@ -4,6 +4,7 @@ from sqlalchemy.orm import Mapped, Session, mapped_column
 from typing import Optional
 import pyotp
 import uuid
+from ..config import settings
 
 from ..db.types import Base, uuid_pk, unique_user_data, created_at_dt
 from ..db.types import default_false_bool, nullable_time_stamp, updated_at_dt
@@ -25,10 +26,11 @@ class User(Base):
 	is_admin: Mapped[default_false_bool] # True if user is an admin
 	#
 	@classmethod
-	def create(cls, email: str, password: str) -> "User":
+	def create(cls, email: str, password: str, is_admin: bool = False) -> "User":
 		return cls(
 			email = email.strip().lower(),
-			password_hash = hash_password(password),
+			password_hash = hash_password(password, settings.pepper),
+			is_admin = is_admin,
 			otp_secret = pyotp.random_base32(),
 		)
 	#

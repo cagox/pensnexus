@@ -80,3 +80,10 @@ SESSION_SECRET="$(sudo systemd-creds decrypt "$HOME/temp/session_secret.cred" -)
 PEPPER="$(sudo systemd-creds decrypt "$HOME/temp/password_pepper.cred" -)" \
 DB_PASSWORD="$(sudo systemd-creds decrypt "$HOME/temp/db_password.cred" -)" \
 alembic revision --autogenerate -m "adding is_admin to user"
+
+
+CONFIG_PATH="$HOME/workspace/github/cagox/pensnexus/docs/ficsiteconf.json" \
+SESSION_SECRET="$(sudo systemd-creds decrypt "$HOME/temp/session_secret.cred" -)" \
+PEPPER="$(sudo systemd-creds decrypt "$HOME/temp/password_pepper.cred" -)" \
+DB_PASSWORD="$(sudo systemd-creds decrypt "$HOME/temp/db_password.cred" -)" \
+python -m pnapi.tools.add_user
