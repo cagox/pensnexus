@@ -46,7 +46,37 @@ python3 -c "import secrets; print(secrets.token_urlsafe(32), end='')" | sudo sys
 
 
 ## Run the dev server with the right variables
+CONFIG_PATH="$HOME/workspace/github/cagox/pensnexus/docs/ficsiteconf.json" \
 SESSION_SECRET="$(systemd-creds decrypt "$HOME/temp/session_secret.cred" -)" \
 PASSWORD_PEPPER="$(systemd-creds decrypt "$HOME/temp/password_pepper.cred" -)" \
 DB_PASSWORD="$(systemd-creds decrypt "$HOME/temp/db_password.cred" -)" \
 exec uvicorn main:app --reload
+
+# Run Alembic
+## To initialize or update schema
+CONFIG_PATH="$HOME/workspace/github/cagox/pensnexus/docs/ficsiteconf.json" \
+SESSION_SECRET="$(sudo systemd-creds decrypt "$HOME/temp/session_secret.cred" -)" \
+PEPPER="$(sudo systemd-creds decrypt "$HOME/temp/password_pepper.cred" -)" \
+DB_PASSWORD="$(sudo systemd-creds decrypt "$HOME/temp/db_password.cred" -)" \
+alembic revision --autogenerate -m "initial schema"
+
+Change the message after -m when making changes.
+
+## To apply the update
+CONFIG_PATH="$HOME/workspace/github/cagox/pensnexus/docs/ficsiteconf.json" \
+SESSION_SECRET="$(sudo systemd-creds decrypt "$HOME/temp/session_secret.cred" -)" \
+PEPPER="$(sudo systemd-creds decrypt "$HOME/temp/password_pepper.cred" -)" \
+DB_PASSWORD="$(sudo systemd-creds decrypt "$HOME/temp/db_password.cred" -)" \
+alembic upgrade head
+
+
+
+
+alembic upgrade head
+
+
+CONFIG_PATH="$HOME/workspace/github/cagox/pensnexus/docs/ficsiteconf.json" \
+SESSION_SECRET="$(sudo systemd-creds decrypt "$HOME/temp/session_secret.cred" -)" \
+PEPPER="$(sudo systemd-creds decrypt "$HOME/temp/password_pepper.cred" -)" \
+DB_PASSWORD="$(sudo systemd-creds decrypt "$HOME/temp/db_password.cred" -)" \
+alembic revision --autogenerate -m "adding is_admin to user"

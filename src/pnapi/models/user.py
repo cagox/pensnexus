@@ -5,7 +5,8 @@ from typing import Optional
 import pyotp
 import uuid
 
-from ..db.types import Base, uuid_pk, unique_user_data, created_at_dt, nullable_time_stamp, updated_at_dt
+from ..db.types import Base, uuid_pk, unique_user_data, created_at_dt
+from ..db.types import default_false_bool, nullable_time_stamp, updated_at_dt
 
 from ..crypto.passwords import hash_password, verify_password
 
@@ -21,6 +22,7 @@ class User(Base):
 	otp_verified_at: Mapped[nullable_time_stamp] # None if OTP has never successfully been used
 	password_hash: Mapped[str] = mapped_column(String(255), nullable=False)
 	otp_secret: Mapped[str] = mapped_column(String(32), nullable=False)
+	is_admin: Mapped[default_false_bool] # True if user is an admin
 	#
 	@classmethod
 	def create(cls, email: str, password: str) -> "User":

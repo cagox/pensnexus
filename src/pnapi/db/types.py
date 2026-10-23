@@ -37,7 +37,7 @@ updated_at_dt = Annotated[datetime, mapped_column(DateTime(timezone=True), serve
 # General purpose timestamp
 nullable_time_stamp = Annotated[Optional[datetime], mapped_column(DateTime(timezone=True), nullable=True, default=None)]
 
-# Deletable Object
+# usable for boolean flags with default False, such as is_admin
 default_false_bool = Annotated[bool, mapped_column(Boolean, default=False, server_default=false(), nullable=False)]
 
 # Free Text fields
